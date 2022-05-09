@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <title>Hello, world!</title>
+        {%block head %}{% endblock %}
+        </head>
+    <body>
+        <div class = "main-wrapper container-fluid ">
+            <div class="centered-logo row align-items-center text-white">
+                <h1 class="col-12" align="center"><img src="{{ url_for('static', filename='kapibara.png')}}" width="60" height="60" class="d-inline-block align-top" alt="">
+                    Kapibara
+                </h1>
+            </div>
+
+            <div class="search-div row align-items-center">
+                <input type="text" id="search-bar" class="search-bar form-control" align="center" placeholder="  Jaki wzór chcesz wyszukać?">
+            </div>
+
+            <div id="result"></div>
+            <footer class="row align-items-end">
+                <p class="col-12 text-white" align="center">© 2022 Fuczekworks</p>
+            </footer>
+        </div>
+    
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+
+            };
+    </script>
+    
+    <script>
+        $(document).ready(function(){
+            //load_data();
+            function load_data(query)
+            {
+             $.ajax({
+              url:"/ajaxlivesearch",
+              method:"POST",
+              data:{query:query},
+              success:function(data)
+              {
+                console.log(data, data.htmlresponse, 'epnis')
+                $('#result').html(data);
+                $("#result").append(data.htmlresponse)
+                MathJax.typeset()
+              }
+             });
+            }
+            $('#search-bar').keyup(function(){
+              var search = $(this).val();
+              console.log(search)
+              if(search != ''){
+              load_data(search);
+             }else{
+              load_data('');
+             }
+            });
+            function test_func(data) {
+                console.log(data, 'abcd');
+            }
+            test_func({{ data|safe }})
+        });
+    </script>
+    
+    <script>
+        $("#start").click(function() {
+            console.log('a')
+            $("#starting-page").removeClass('d-none');
+            $("#no-equations").addClass('d-none');
+            $("#equations-table").addClass('d-none');
+        })
+        
+        $("#brak").click(function() {
+            console.log('a')
+            $("#no-equations").removeClass('d-none');
+            $("#starting-page").addClass('d-none');
+            $("#equations-table").addClass('d-none');
+        })
+
+        $("#wyniki").click(function() {
+            console.log('a')
+            $("#equations-table").removeClass('d-none');
+            $("#starting-page").addClass('d-none');
+            $("#no-equations").addClass('d-none');
+        })
+
+
+
+        $("#table1").click(function() {
+            $("#table1").removeClass('selected');
+            $(this).addClass('selected');
+            console.log($("#demo1votes").text())
+            number = parseInt($("#demo1votes").text().slice(1))+1
+            console.log(number)
+            $("#demo1votes").text('♥ ' + number)
+        })
+
+    </script>
+
+    </body>
+</html>

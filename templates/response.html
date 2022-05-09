@@ -1,0 +1,38 @@
+{% block body %}
+    <div class="tables row align-items-center">
+        <table id = "data-table" class="suggestions-table col-12">
+            <thead>
+            </thead>
+            <tbody>
+                {% for each in equations %}
+                <tr class="main-table row accordion-toggle d-flex align-items-center">
+                    <td data-toggle="collapse" data-target="#collapse{{each.id}}" class = "equation col-12 col-sm-3 col-md-3 pl-4 py-2 pl-sm-3">{{each.name}}:</td>
+                    <td data-toggle="collapse" data-target="#collapse{{each.id}}" class = "mathematics col-9 col-sm-6 col-md-6 pt-2"><h6 align="center">${{each.mathematics}}$</h6></td>
+                    <td data-toggle="collapse" data-target="#collapse{{each.id}}"  class = "d-none d-md-block col-md-1"><p>{{each.faculty}}</p></td>
+                    <td class = "col-3 col-sm-3 col-md-2 text-center">
+                        <form action="/ajaxvote/{{each.id}}" method="POST">
+                            <button input type="submit" id="heart-button{{each.id}}" value="add vote" class="row heart-button form-control px-0 py-2">
+                                <h6 align="center">♡ {{each.votes}}</h6>
+                            </button>
+                       </form>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="collapsed-table hiddenRow">
+                        <div class="accordian-body collapse" id="collapse{{each.id}}">
+                            <div class="additional-info">
+                                    {% for eacher in each.components %}
+                                        <p>{{eacher.constant}} - {{eacher.name}}</p>
+                                    {% endfor %}
+                                    <br><p>Dodane przez: asdfas</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

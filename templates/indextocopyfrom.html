@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" type="text/css" href="custom.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class = "main-wrapper container-fluid ">
+
+        <div class="centered-logo row align-items-center text-white">
+            <h1 class="col-12" align="center"><img src="kapibara.png" width="60" height="60" class="d-inline-block align-top" alt="">
+                Kapibara
+            </h1>
+        </div>
+
+        <div class="search-div row align-items-center">
+            <input type="text" class="search-bar form-control" align="center" placeholder="  Jaki wzór chcesz wyszukać?">
+        </div>
+
+        <div class="recently-popular row align-items-center">
+            <h5 class="col-12 text-white" align="center">Ostatnio popularne:</h5>
+        </div>
+
+        <div class="tables row align-items-center">
+            <table class="suggestions-table col-12">
+                <thead>
+
+                </thead>
+                <tbody>
+                    <tr class="main-table accordion-toggle d-flex align-items-center">
+                        <td data-toggle="collapse" data-target="#demo1" class = "col-4 col-sm-3 col-md-3">Liczba Reynoldsa</td>
+                        <td data-toggle="collapse" data-target="#demo1" class = "col-5 col-sm-6 col-md-6"><h5 align="center">Re=v*d/v</h5></td>
+                        <td data-toggle="collapse" data-target="#demo1"  class = "d-none d-md-block col-md-1"><p>W9</p></td>
+                        <td class = "col-3 col-sm-3 col-md-2 text-center">
+                            <button data-toggle="a"  id="table1" type="checkbox" class="row heart-button form-control px-0 py-2" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                <h6 id="demo1votes" align="center">♡ 97</h6>
+                            </button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="collapsed-table hiddenRow">
+                            <div class="accordian-body collapse" id="demo1">
+                                <div class="additional-info">
+                                        <p>v - prędkość</br>
+                                        d - średnica</br>
+                                        v - kinematyczny współczynnik lepkości</p></br>
+                                        <p>Dodane przez: asdfas</p>
+                                        
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+    
+                    <tr data-toggle="collapse" data-target="#demo2" class="main-table accordion-toggle d-flex align-items-center">
+                        <td class = "col-4 col-sm-3 col-md-3">Współczynnik temperaturowy</td>
+                        <td class = "col-5 col-sm-6 col-md-6"><h5 align="center">m=Oa/Al</h5></td>
+                        <td class = "d-none d-md-block col-md-1"><p>W9</p></td>
+                        <td class = "col-3 col-sm-3 col-sm-2 col-md-2">
+                            <button id="table1" type="button" class="heart-button form-control px-0 py-2" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                <h6 id="demo1votes" align="center">♡ 66</h6>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="collapsed-table hiddenRow">
+                            <div class="accordian-body collapse" id="demo2">
+                                <div class="additional-info">
+                                        <p>O - obwód</br>
+                                        a - przenikalność ciepła</br>
+                                        A - przekrój<br>
+                                        l - współczynnik przewodzenia ciepła</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr data-toggle="collapse" data-target="#demo3" class="main-table accordion-toggle d-flex align-items-center">
+                        <td class = "col-4 col-sm-3 col-md-3">Strumień ciepła</td>
+                        <td class = "col-5 col-sm-6 col-md-6"><h5 align="center">Q=T/ER</h5></td>
+                        <td class = "d-none d-md-block col-md-1"><p>W9</p></td>
+                        <td class = "col-3 col-sm-3 col-sm-2 col-md-2">
+                            <button id="table1" type="button" class="heart-button form-control px-0 py-2" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                <h6 id="demo1votes" align="center">♡ 43</h6>
+                            </button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="collapsed-table hiddenRow">
+                            <div class="accordian-body collapse" id="demo3">
+                                <div class="additional-info">
+                                        <p>T - różnica temperatur</br>
+                                        R - suma oporów</br></p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+    
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="row align-items-end">
+            <p class="col-12 text-white" align="center">© 2022 Fuczekworks</p>
+        </footer>
+    </div>
+    
+        <!-- Button trigger modal -->
+
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Zaproponuj wzór</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form action="/" method="POST" class="align-middle">
+                    <div class="row align-items-center py-1 px-3">
+                        <p>Dodanie własnego wzoru jest prostsze niż myślisz! Uzupełnij nazwę, podaj swój wzór.</p>
+                    </div>
+                    <div class="row align-items-center" style="height: 40px">
+                        <div class="col-3">
+                            <label>Nazwa:</label> 
+                        </div>
+                        <div class="col-9">
+                            <input type= "text" class="form-control" name="explaination" id="explaination" placeholder="Liczba Reynoldsa">
+                        </div>
+                    </div>
+                    <div class="row align-items-center" style="height: 40px">
+                        <div class="col-3">
+                            <label>Wzór:</label> 
+                        </div>
+                        <div class="col-9">
+                            <input type= "text" class="form-control" name="equation" id="equation" placeholder="Re=v*d/v">
+                        </div>
+                    </div>
+                    <div class="row align-items-center p-3" style="height:50px">
+                        <p>Uzupełnij swój wzór o użyte stałe.</p>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-3 dropdown py-2 px-4">
+                            <button class="btn btn-secondary dropdown-toggle form-control" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Pr
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">Re</a>
+                              <a class="dropdown-item" href="#">Pr</a>
+                              <a class="dropdown-item" href="#">Nu</a>
+                            </div>
+                          </div>
+                        <div class="col-9">
+                            <label>Liczba Prandtla</label> 
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-3 dropdown py-2 px-4">
+                            <button class="btn btn-secondary dropdown-toggle form-control" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Nu
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">X</a>
+                              <a class="dropdown-item" href="#">Pr</a>
+                              <a class="dropdown-item" href="#">Nu</a>
+                            </div>
+                          </div>
+                        <div class="col-9">
+                            <label>Liczba Nusselta</label> 
+                        </div>
+                    </div>
+                    <div class="row align-items-center p-3" style="height:50px">
+                        <p>Pozostaje tylko dodanie wzoru za pomocą przycisku!</p>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+            <button type="button" class="btn btn-primary">Zaproponuj!</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        $("#start").click(function() {
+            console.log('a')
+            $("#starting-page").removeClass('d-none');
+            $("#no-equations").addClass('d-none');
+            $("#equations-table").addClass('d-none');
+        })
+        
+        $("#brak").click(function() {
+            console.log('a')
+            $("#no-equations").removeClass('d-none');
+            $("#starting-page").addClass('d-none');
+            $("#equations-table").addClass('d-none');
+        })
+
+        $("#wyniki").click(function() {
+            console.log('a')
+            $("#equations-table").removeClass('d-none');
+            $("#starting-page").addClass('d-none');
+            $("#no-equations").addClass('d-none');
+        })
+
+        $("#table1").click(function() {
+            $("#table1").removeClass('selected');
+            $(this).addClass('selected');
+            console.log($("#demo1votes").text())
+            number = parseInt($("#demo1votes").text().slice(1))+1
+            console.log(number)
+            $("#demo1votes").text('♥ ' + number)
+        })
+
+        
+    </script>
+
+</body>
+</html>
