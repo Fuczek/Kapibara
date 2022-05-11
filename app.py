@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, jsonify, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import or_
 
+from os import environ
+
 app = Flask(__name__)
 
 
@@ -11,7 +13,7 @@ if ENV == 'dev':
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:7733@localhost/'
 else:
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ysqhybqlcowgnm:248a0d1a82842826da4cdcff82418db36b34b7ec776d220240123256ea5ebb60@ec2-54-172-175-251.compute-1.amazonaws.com:5432/d4v03hmlietk8t'
+    app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL')
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
