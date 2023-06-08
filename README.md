@@ -15,4 +15,4 @@ The dynamic search updates with each keystroke:
 
 Later you can add an equation yourself (wip):
 
-![adding-equation](readme/adding-equation.png)
+![adding-equation](readme/adding-equations.png)
