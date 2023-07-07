@@ -1,4 +1,4 @@
-# Kapibara - Public wiki of University equations
+# Kapibara - Community driven wiki of University equations
 
 Work in progress. This project is meant to be a community-driven wiki for referencing specific equations for Wroclaw University of Science and Technology. It allows for the upload of your own equations via LaTeX syntax, which is later translated with MathJax. This can be later copied to your Word file as a MathML code or into LaTeX format.
 It features a PostgreSQL database divided by faculties and subjects, which also stores like amounts. The site pushes the good results up front.
